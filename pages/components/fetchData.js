@@ -25,12 +25,12 @@ export const YToptions = {
     'X-RapidAPI-Host': 'youtube-search-and-download.p.rapidapi.com',
   },
 };
-export const fetchData = async (url, option) => {
+export default async function fetchData(url, option) {
   const res = await fetch(url, option);
   const data = await res.json();
 
   return data;
-};
+}
 export const fetchuser = async (session) => {
   const fetchedusers = await fetch(
     `http://localhost:3000/api/Users/${session.user.email}`
