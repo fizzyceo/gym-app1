@@ -9,17 +9,21 @@ const SearchBar = ({ setExercises, bodyPart, setBodyPart }) => {
 
   useEffect(() => {
     const fun = async () => {
-      const Searchres = await fetchData(
-        'https://exercisedb.p.rapidapi.com/exercises/bodyPartList',
-        options
-      );
-      Searchres?.unshift('All');
-      console.log(Searchres);
-      setBodyParts(Searchres);
-      console.log(bodyParts);
+      try {
+        const Searchres = await fetchData(
+          'https://exercisedb.p.rapidapi.com/exercises/bodyPartList',
+          options
+        );
+
+        Searchres?.unshift('All');
+        console.log(Searchres);
+        setBodyParts(Searchres);
+      } catch (err) {
+        console.log(err);
+      }
     };
     fun();
-  }, [bodyParts]);
+  }, []);
   const handleSearch = async () => {
     if (search) {
       console.log('haha');

@@ -17,8 +17,8 @@ const Login = () => {
         >
           {' '}
           <Image
-            width={64}
-            height={64}
+            width={32}
+            height={32}
             className=""
             src="/google.png"
             alt=""
@@ -31,8 +31,8 @@ const Login = () => {
         >
           {' '}
           <Image
-            width={64}
-            height={64}
+            width={32}
+            height={32}
             className=""
             src="/facebook.png"
             alt=""
