@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { fetchData, options, YToptions } from '../utils/fetchData';
+import { fetchData, options, YToptions } from '../libs/fetchData';
 import { useRouter } from 'next/router';
 import Details from '../components/Details';
 import Navbar from '../components/Navbar';
