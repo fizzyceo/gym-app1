@@ -8,7 +8,7 @@ import Exercise from './Exercise';
 import { useSession, signIn, signOut, getSession } from 'next-auth/react';
 import { PrismaClient } from '@prisma/client';
 import { useEffect, useState } from 'react';
-import { fetchuser } from './lib/fetchData';
+import { fetchuser } from './components/fetchData';
 import Footer from './components/Footer';
 
 export default function Home({ user, userexos }) {
