@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Link from 'next/link';
 import { PrismaClient } from '@prisma/client';
 import Footer from './components/Footer';
+import Image from 'next/image';
 
 const Login = () => {
   return (
@@ -15,7 +16,13 @@ const Login = () => {
           onClick={() => signIn('google')}
         >
           {' '}
-          <img className="" src="/google.png" alt="" />{' '}
+          <Image
+            width={64}
+            height={64}
+            className=""
+            src="/google.png"
+            alt=""
+          />{' '}
           <span>Sign in with google</span>{' '}
         </button>
         <button
@@ -23,7 +30,13 @@ const Login = () => {
           onClick={() => signIn('facebook')}
         >
           {' '}
-          <img className="" src="/facebook.png" alt="" />
+          <Image
+            width={64}
+            height={64}
+            className=""
+            src="/facebook.png"
+            alt=""
+          />
           <span>Sign in with facebook</span>
         </button>
         <h1 className="self-center text-3xl ">Via account</h1>

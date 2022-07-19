@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import Loader from './Loader';
@@ -21,7 +22,10 @@ const YTVids = ({ exoDetails, exoVids }) => {
                 target="_blank"
               >
                 <div className="cursor-pointer flex border-t-4 rounded-md h-[400px] bg-slate-100 border-cyan-600 flex-col items-center justify-center p-4 gap-4">
-                  <img
+                  <Image
+                    width={350}
+                    height={350}
+                    alt=""
                     className=" rounded-md max-h-[85%]"
                     src={item.video.thumbnails[0].url}
                   />

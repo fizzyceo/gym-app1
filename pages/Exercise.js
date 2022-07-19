@@ -39,7 +39,7 @@ const Exercise = ({
       setExercises(returnedData);
     };
     fetchExoData();
-  }, [bodyPart]);
+  }, [bodyPart, setExercises]);
 
   const currentExos = exercises?.slice(indexOfFirstExo, indexOfLastExo);
   console.log(currentExos);

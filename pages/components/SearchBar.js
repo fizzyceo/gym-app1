@@ -19,7 +19,7 @@ const SearchBar = ({ setExercises, bodyPart, setBodyPart }) => {
       console.log(bodyParts);
     };
     fun();
-  }, []);
+  }, [bodyParts]);
   const handleSearch = async () => {
     if (search) {
       console.log('haha');
