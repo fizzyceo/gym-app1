@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React, { useContext, useReducer, useState } from 'react';
-import { Store } from '../Context/Store';
+
 import Router from 'next/router';
 import Image from 'next/image';
 const ExoCard = ({
