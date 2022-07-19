@@ -20,7 +20,7 @@ const YTVids = ({ exoDetails, exoVids }) => {
                 href={`https://www.youtube.com/watch?v=${item.video.videoId}`}
                 target="_blank"
               >
-                <div className="cursor-pointer flex border-t-4 rounded-md h-[400px] bg-slate-100 border-cyan-600 flex-col items-center justify-center p-4 gap-4">
+                <div className="cursor-pointer flex border-t-4 rounded-md max-w-[380px] bg-slate-100 border-cyan-600 flex-col items-center justify-center p-4 gap-4">
                   <Image
                     width={350}
                     height={350}

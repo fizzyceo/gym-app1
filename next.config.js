@@ -3,7 +3,11 @@ const nextConfig = {
   reactStrictMode: true,
 
   images: {
-    domains: ['d205bpvrqc9yn1.cloudfront.net', 'lh3.googleusercontent.com'],
+    domains: [
+      'd205bpvrqc9yn1.cloudfront.net',
+      'i.ytimg.com',
+      'lh3.googleusercontent.com',
+    ],
   },
 };
 
