@@ -16,7 +16,7 @@ const SearchBar = ({ setExercises, bodyPart, setBodyPart }) => {
         );
 
         Searchres?.unshift('All');
-        console.log(Searchres);
+
         setBodyParts(Searchres);
       } catch (err) {
         console.log(err);
@@ -26,7 +26,6 @@ const SearchBar = ({ setExercises, bodyPart, setBodyPart }) => {
   }, []);
   const handleSearch = async () => {
     if (search) {
-      console.log('haha');
       const Searchres = await fetchData(
         'https://exercisedb.p.rapidapi.com/exercises',
         options

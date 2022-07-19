@@ -2,7 +2,6 @@ import Image from 'next/image';
 import React from 'react';
 
 const Details = ({ exoDetails }) => {
-  console.log(exoDetails);
   if (exoDetails) {
     const { name, gifUrl, bodyPart, equipment, target } = exoDetails;
     return (

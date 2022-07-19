@@ -8,7 +8,6 @@ import ExoCard from '../components/ExoCard';
 import Footer from '../components/Footer';
 import Image from 'next/image';
 const OwnExo = ({ filteredexos, user }) => {
-  console.log(filteredexos);
   const [deletemessage, setdeletemessage] = useState(false);
   return (
     <div className="flex flex-col gap-12">
@@ -48,7 +47,6 @@ const OwnExo = ({ filteredexos, user }) => {
 };
 //REMOVE ADD FROM EXOCARDS
 export async function getServerSideProps(context) {
-  console.log(context.query);
   const { user } = context.query;
   const prisma = new PrismaClient();
   const userexo = await prisma.userfavorite.findMany({
@@ -56,8 +54,7 @@ export async function getServerSideProps(context) {
       UID: JSON.parse(user).id,
     },
   });
-  console.log('this is the user exos');
-  console.log(userexo);
+
   const returnedData = await fetchData(
     'https://exercisedb.p.rapidapi.com/exercises',
     options

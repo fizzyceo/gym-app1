@@ -14,7 +14,7 @@ const Navbar = ({ currUser }) => {
 
   const pushuser = (passedurl) => {
     seturl(passedurl);
-    console.log(url);
+
     Router.push({
       pathname: url,
       query: {

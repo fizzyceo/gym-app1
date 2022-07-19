@@ -8,7 +8,7 @@ import Exercise from './Exercise';
 import { useSession, signIn, signOut, getSession } from 'next-auth/react';
 import { PrismaClient } from '@prisma/client';
 import { useEffect, useState } from 'react';
-import { fetchuser } from './utils/fetchData';
+import { fetchuser } from './libs/fetchData';
 import Footer from './components/Footer';
 
 export default function Home({ user, userexos }) {
@@ -19,7 +19,7 @@ export default function Home({ user, userexos }) {
   const [addmessage, setAddmessage] = useState(false);
 
   //fix when the exercise is already added to the user's liste
-  console.log(currUser);
+
   return (
     <div className="bg-slate-300 font-sans">
       <Navbar userexos={userexos} currUser={currUser} />
@@ -52,7 +52,7 @@ export async function getServerSideProps(cxt) {
   const session = await getSession(cxt);
   if (session) {
     const user = await fetchuser(session);
-    console.log(user.user);
+
     const favs = await fetch(
       `http://localhost:3000/api/UserFavor/${user.user.id}`
     );

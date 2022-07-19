@@ -4,7 +4,6 @@ import React from 'react';
 import Loader from './Loader';
 
 const YTVids = ({ exoDetails, exoVids }) => {
-  console.log(exoVids);
   if (exoDetails) {
     return (
       <div className="mx-auto w-[85%] my-4">

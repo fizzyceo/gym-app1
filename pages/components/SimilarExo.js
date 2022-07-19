@@ -3,7 +3,6 @@ import ExoCard from './ExoCard';
 import Loader from './Loader';
 
 const SimilarExo = ({ currUser, targetexos, EquipExo }) => {
-  console.log(EquipExo);
   return (
     <div className="w-[85%] mx-auto">
       <h1 className="text-3xl ">

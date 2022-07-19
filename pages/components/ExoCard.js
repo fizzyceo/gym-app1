@@ -44,11 +44,9 @@ const ExoCard = ({
         headers: { 'Content-Type': 'application/json' },
       });
       const favdata = await favs.json();
-      console.log(favdata);
     }
   };
   const addexo_to_user = async () => {
-    console.log(currUser);
     if (Object.keys(currUser).length > 0) {
       setAddmessage(true);
 
@@ -65,7 +63,6 @@ const ExoCard = ({
         headers: { 'Content-Type': 'application/json' },
       });
       const favdata = await favs.json();
-      console.log(favdata);
     } else {
       Router.push({
         pathname: '/Login',
@@ -73,7 +70,6 @@ const ExoCard = ({
     }
   };
   const sendProps = () => {
-    console.log(currUser);
     Router.push({
       pathname: `/Exercise/${exo.id}`,
       query: {
