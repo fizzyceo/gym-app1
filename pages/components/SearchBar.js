@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchData, options } from '../utils/fetchData';
+import { fetchData, options } from '../libs/fetchData';
 import Loader from './Loader';
 import ScrollBarHor from './ScrollBarHor';
 const SearchBar = ({ setExercises, bodyPart, setBodyPart }) => {

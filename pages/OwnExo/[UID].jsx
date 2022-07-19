@@ -2,7 +2,7 @@ import { PrismaClient } from '@prisma/client';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
-import { fetchData, options } from '../utils/fetchData';
+import { fetchData, options } from '../libs/fetchData';
 import Link from 'next/link';
 import ExoCard from '../components/ExoCard';
 import Footer from '../components/Footer';
