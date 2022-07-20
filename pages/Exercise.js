@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ExoCard from './components/ExoCard';
 import Pagination from '@mui/material/Pagination';
-import fetchData, { options } from './components/fetchData';
+import fetchData, { options } from '../lib/fetchData';
 import Loader from './components/Loader';
 const Exercise = ({
   currUser,
