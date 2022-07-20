@@ -10,8 +10,8 @@ const SimilarExo = ({ currUser, targetexos, EquipExo }) => {
         the same muscules
       </h1>
       <div className=" h-[510px] items-center bg-cyan-900 rounded-md px-5  mx-auto my-10 flex flex-row gap-10 overflow-x-scroll scrolling">
-        {targetexos.length ? (
-          targetexos.map((item, index) => (
+        {targetexos?.length ? (
+          targetexos?.map((item, index) => (
             <ExoCard key={index} exo={item} currUser={currUser} />
           ))
         ) : (
@@ -23,7 +23,7 @@ const SimilarExo = ({ currUser, targetexos, EquipExo }) => {
         <span className="font-bold text-cyan-600">equipments</span>
       </h1>
       <div className="  h-[510px] items-center bg-cyan-900 rounded-md px-5   my-10 flex flex-row gap-10 overflow-x-scroll scrolling">
-        {EquipExo.length ? (
+        {EquipExo?.length ? (
           EquipExo.map((item, index) => (
             <ExoCard key={index} exo={item} currUser={currUser} />
           ))

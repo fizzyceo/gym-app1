@@ -73,7 +73,7 @@ const ExoCard = ({
     Router.push({
       pathname: `/Exercise/${exo.id}`,
       query: {
-        exoId: exo.id,
+        exoId: exo?.id,
         currUser: JSON.stringify(currUser),
       },
     });
@@ -86,7 +86,7 @@ const ExoCard = ({
     >
       <a className=" cursor-pointer" onClick={() => sendProps()}>
         <Image
-          src={exo.gifUrl}
+          src={exo?.gifUrl}
           // layout="fill" // required
           //objectFit="cover" // change to suit your needs
           alt="image"
@@ -94,19 +94,19 @@ const ExoCard = ({
           height={350}
           loading="lazy"
           placeholder="blur"
-          blurDataURL={exo.gifUrl}
+          blurDataURL={exo?.gifUrl}
         />
       </a>
       <div className="ml-2 my-2 flex flex-row gap-5   text-white ">
         <p className="py-2 px-4 rounded-xl flex items-center bg-cyan-700">
-          {exo.target}
+          {exo?.target}
         </p>
         <p className=" py-2 px-4 rounded-xl flex items-center bg-slate-700">
-          {exo.bodyPart}
+          {exo?.bodyPart}
         </p>
       </div>
       <div className="my-3 mx-2 flex flex-row justify-between items-center">
-        <p> {exo.name}</p>
+        <p> {exo?.name}</p>
         {!mine ? (
           <>
             {exoExist ? (

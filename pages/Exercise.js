@@ -69,7 +69,7 @@ const Exercise = ({
         )}
       </div>
       <div className="text-white flex items-center justify-center mb-0 mt-5 bg-cyan-500 px-5 py-3 w-fit mx-auto rounded-full">
-        {exercises.length > 9 && (
+        {exercises?.length > 9 && (
           <Pagination
             color="primary"
             count={Math.ceil(exercises.length / 9)}
