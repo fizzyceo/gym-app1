@@ -35,7 +35,7 @@ export default function handler(req, res) {
       }),
     ],
 
-    secret: process.env.SECRET,
+    secret: process.env.SECRET || 'anyretogijo-121AQHegmkemrg._',
     jwt: {
       secret: 'GOCSPXweferewfwefwefewhtrmkytjlmtyjlkm76otykjotymjuj-V',
     },
