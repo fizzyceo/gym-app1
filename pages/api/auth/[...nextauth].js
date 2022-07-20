@@ -26,8 +26,8 @@ export default function handler(req, res) {
         },
       }),*/
       GoogleProvider({
-        clientId: process.env.GOOGLE_CLIENT_ID, // '25015500191-8et70rnfbi3d46vgnvdei12k1sa74rfp.apps.googleusercontent.com',
-        clientSecret: process.env.GOOGLE_CLIENT_SECRET, //'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',
+        clientId: process.env.GOOGLE_CLIENT_ID,
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       }),
       FacebookProvider({
         clientId: process.env.FACEBOOK_CLIENT_ID,
@@ -35,13 +35,13 @@ export default function handler(req, res) {
       }),
     ],
 
-    secret: process.env.SECRET, //'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wefklmwegmergmerkgerg',
+    secret: process.env.SECRET,
     jwt: {
       secret: 'GOCSPXweferewfwefwefewhtrmkytjlmtyjlkm76otykjotymjuj-V',
     },
     callbacks: {
       async redirect({ url, baseUrl }) {
-        return baseUrl;
+        return process.env.NEXTAUTH_URL;
       },
     },
   });
