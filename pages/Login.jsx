@@ -13,7 +13,7 @@ const Login = () => {
       <div className="w-[60%] p-5 rounded-md bg-slate-100 flex flex-col gap-7 mx-auto">
         <button
           className="w-[90%] py-6 space-x-3 mx-auto  text-white bg-black outline-none flex flex-row  rounded-md justify-center items-center gap-5"
-          onClick={() => signIn()}
+          onClick={() => signIn('google')}
         >
           {' '}
           <Image
