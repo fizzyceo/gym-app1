@@ -1,10 +1,12 @@
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
 }
-
 datasource db {
   provider = "mysql"
-  url      = "mysql://root:Stophacking22_@localhost:3306/prismatraining?schema=public"
+  url = env("DATABASE_URL")
+  referentialIntegrity = "prisma"
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 model Account {
   id                 String  @id @default(cuid())
@@ -21,7 +23,7 @@ model Account {
   session_state      String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-
+  @@index([userId])
   @@unique([provider, providerAccountId])
 }
 
@@ -31,6 +33,7 @@ model Session {
   userId       String
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+@@index([userId])
 }
 
 model User {
@@ -59,7 +62,7 @@ model Userfavorite {
   UID    String
   exo_Id String
   user   User   @relation(fields: [UID], references: [id], onDelete: Cascade, map: "userfavid")
-
+@@index([UID])
   @@id([UID, exo_Id])
 }
 
