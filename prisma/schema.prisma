@@ -9,7 +9,7 @@ datasource db {
   //shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 model Account {
-  @@map("account")
+  @@map(name: "account")
   id                 String  @id @default(cuid())
   userId             String
   type               String
@@ -29,6 +29,7 @@ model Account {
 }
 
 model Session {
+  @@map(name: "session")
   id           String   @id @default(cuid())
   sessionToken String   @unique
   userId       String
@@ -38,6 +39,7 @@ model Session {
 }
 
 model User {
+  @@map(name: "user")
   id            String    @id @default(cuid())
   name          String?
   email         String?   @unique
@@ -51,7 +53,8 @@ model User {
 
 
 model VerificationToken {
-  identifier String
+  @@map(name: "verificationtoken")
+    identifier String
   token      String   @unique
   expires    DateTime
 
@@ -59,7 +62,8 @@ model VerificationToken {
 }
 
 model Userfavorite {
-  @@map("userfavorite")
+  
+  @@map(name:"userfavorite")
   UID    String
   exo_Id String
   user   User   @relation(fields: [UID], references: [id], onDelete: Cascade, map: "userfavid")
