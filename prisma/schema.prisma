@@ -6,9 +6,10 @@ datasource db {
   provider = "mysql"
   url ="mysql://sql11508181:s3UflnUZca@sql11.freesqldatabase.com:3306/sql11508181?schema=public"//    mysql://root:Stophacking22_@localhost:3306/prismatraining?schema=public    env("DATABASE_URL")
   referentialIntegrity = "prisma"
-  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+  //shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 model Account {
+  @@map("account")
   id                 String  @id @default(cuid())
   userId             String
   type               String
