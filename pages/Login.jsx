@@ -16,7 +16,7 @@ const Login = () => {
           onClick={() =>
             signIn('google', {
               callbackUrl:
-                'http://localhost:3000' || 'https://gym-app1.vercel.app/',
+                'https://gym-app1.vercel.app/',
             })
           }
         >
