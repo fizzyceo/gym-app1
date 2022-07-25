@@ -54,7 +54,7 @@ export async function getServerSideProps(cxt) {
     const user = await fetchuser(session);
 
     const favs = await fetch(
-      `http://localhost:3000/api/UserFavor/${user.user.id}`
+     `https://gym-app1.vercel.app/api/UserFavor/${user.user.id}`
     );
     const favdata = await favs.json();
 
