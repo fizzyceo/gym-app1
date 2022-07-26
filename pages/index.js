@@ -27,7 +27,7 @@ export default function Home({ user, userexos }) {
       <div
         className={`fixed top-20 ${
           !addmessage ? 'right-[-100%] ' : 'right-4 '
-        } transition-all  flex flex-row bg-black text-white p-4 rounded-md w-fit items-center justify-center gap-5`}
+        } transition-all  flex flex-row bg-black z-20 text-white p-4 rounded-md w-fit items-center justify-center gap-5`}
       >
         <p className="">exercise Added seccessfully</p>
         <Image
