@@ -15,7 +15,7 @@ const OwnExo = ({ filteredexos, user }) => {
       <div
         className={`fixed top-20 ${
           !deletemessage ? 'right-[-100%] ' : 'right-4 '
-        } transition-all  z-10 flex flex-row bg-black text-white p-4 rounded-md w-fit items-center justify-center gap-5`}
+        } transition-all  z-20 flex flex-row bg-black text-white p-4 rounded-md w-fit items-center justify-center gap-5`}
       >
         <p className="">exercise Deleted seccessfully</p>
         <Image
