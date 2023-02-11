@@ -48,7 +48,7 @@ const Navbar = () => {
               onClick={() => setdropdown(!dropdown)}
             >
               <Image
-                src={session.user.image}
+                src={session?.user?.image}
                 width={48}
                 height={48}
                 alt=""

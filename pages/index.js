@@ -17,7 +17,7 @@ import { useDispatch, useSelector } from 'react-redux';
 export default function Home({ user, userexos }) {
   const [currUser, setcurrUser] = useState(user || {}); //put on the contexte
   const [favexosID, setfavexosID] = useState(
-    userexos?.map((fav) => fav.exo_id) || []
+    userexos?.map((fav) => fav?.exo_id) || []
   );
   const addmessage = useSelector((state) => state.addmessage);
   //const [addmessage, setAddmessage] = useState(false);
@@ -34,7 +34,7 @@ export default function Home({ user, userexos }) {
         />
         <link rel="icon" href="/dumbbell.png" />
       </Head>
-      <Navbar userexos={userexos} uid={currUser.id} />
+      <Navbar userexos={userexos} uid={currUser?.id} />
 
       <div
         className={`fixed top-20 ${

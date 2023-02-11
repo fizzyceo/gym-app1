@@ -6,7 +6,6 @@ import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 
 const Profile = ({ user }) => {
-  
   return (
     <div className="flex flex-col  gap-12 bg-slate-200 w-full min-h-screen">
       <Navbar currUser={user} />
@@ -14,7 +13,7 @@ const Profile = ({ user }) => {
         <Image
           width={160}
           height={160}
-          src={user.image}
+          src={user?.image}
           className=" rounded-full  "
           alt=""
         />

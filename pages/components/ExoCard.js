@@ -32,10 +32,10 @@ const ExoCard = ({
   );*/
   const [deleted, setdeleted] = useState(false);
   //const user = JSON.parse(currUser);
-  console.log(parseInt(exo.id));
+  console.log(parseInt(exo?.id));
   console.log(userexos);
   const [exoExist, setExoExist] = useState(
-    userexos?.filter((e) => e.exo_id === parseInt(exo.id)).length > 0
+    userexos?.filter((e) => e.exo_id === parseInt(exo?.id)).length > 0
       ? false
       : true
   );
@@ -44,10 +44,10 @@ const ExoCard = ({
       setTimeout(() => {
         dispatch(setDeleteMsgFalse);
       }, 3000);
-      const favs = await fetch(`/api/UserFavor/${currUser.id}`, {
+      const favs = await fetch(`/api/UserFavor/${currUser?.id}`, {
         method: 'DELETE',
         body: JSON.stringify({
-          exoId: exo.id,
+          exoId: exo?.id,
         }),
         headers: { 'Content-Type': 'application/json' },
       });
@@ -68,10 +68,10 @@ const ExoCard = ({
         dispatch(setAddMsgFalse());
       }, 3000);
 
-      const favs = await fetch(`/api/UserFavor/${currUser.id}`, {
+      const favs = await fetch(`/api/UserFavor/${currUser?.id}`, {
         method: 'POST',
         body: JSON.stringify({
-          exoId: exo.id,
+          exoId: exo?.id,
         }),
         headers: { 'Content-Type': 'application/json' },
       });
@@ -84,7 +84,7 @@ const ExoCard = ({
   };
   const sendProps = () => {
     Router.push({
-      pathname: `/Exercise/${exo.id}`,
+      pathname: `/Exercise/${exo?.id}`,
       query: {
         exoId: exo?.id,
         currUser: JSON.stringify(currUser),
