@@ -3,14 +3,22 @@ import React, { useContext, useReducer, useState } from 'react';
 
 import Router from 'next/router';
 import Image from 'next/image';
+import { useDispatch } from 'react-redux';
+import {
+  setAddMsgFalse,
+  setAddMsgTrue,
+  setDeleteMsgFalse,
+  setDeleteMsgTrue,
+} from '../../Context/popups';
 const ExoCard = ({
   exo,
   currUser,
   setdeletemessage,
-  setAddmessage,
+
   mine,
   userexos,
 }) => {
+  const dispatch = useDispatch();
   /*console.log(
     "exo data is bp=" +
       exo.bodyPart +
@@ -24,35 +32,40 @@ const ExoCard = ({
   );*/
   const [deleted, setdeleted] = useState(false);
   //const user = JSON.parse(currUser);
-
+  console.log(parseInt(exo.id));
+  console.log(userexos);
   const [exoExist, setExoExist] = useState(
-    userexos?.filter((e) => e.exo_Id === exo.id).length > 0 ? false : true
+    userexos?.filter((e) => e.exo_id === parseInt(exo.id)).length > 0
+      ? false
+      : true
   );
   const delete_user = async () => {
     if (Object.keys(currUser).length > 0) {
-      setdeletemessage(true);
-      setdeleted(true);
-      setExoExist(true);
       setTimeout(() => {
-        setdeletemessage(false);
+        dispatch(setDeleteMsgFalse);
       }, 3000);
-      const favs = await fetch(`/api/UserFavor/${JSON.parse(currUser).id}`, {
+      const favs = await fetch(`/api/UserFavor/${currUser.id}`, {
         method: 'DELETE',
         body: JSON.stringify({
           exoId: exo.id,
         }),
         headers: { 'Content-Type': 'application/json' },
       });
+
       const favdata = await favs.json();
+      console.log(favdata);
+      dispatch(setDeleteMsgTrue);
+      setdeleted(true);
+      setExoExist(true);
     }
   };
   const addexo_to_user = async () => {
     if (Object.keys(currUser).length > 0) {
-      setAddmessage(true);
+      dispatch(setAddMsgTrue());
 
       setExoExist(false);
       setTimeout(() => {
-        setAddmessage(false);
+        dispatch(setAddMsgFalse());
       }, 3000);
 
       const favs = await fetch(`/api/UserFavor/${currUser.id}`, {
@@ -82,7 +95,7 @@ const ExoCard = ({
     <div
       className={` ${
         deleted && 'hidden'
-      } transition-all min-w-[25%] max-h-[500px] hover:scale-105  w-[400px] border-t-[6px] border-cyan-500  bg-slate-100 text-slate-900 text-lg text-left rounded-md  h-fit`}
+      } transition-all min-w-[300px] max-h-[500px] hover:scale-105  w-[400px] border-t-[6px] border-cyan-500  bg-slate-100 text-slate-900 text-lg text-left rounded-md  h-fit`}
     >
       <a className=" cursor-pointer" onClick={() => sendProps()}>
         <Image

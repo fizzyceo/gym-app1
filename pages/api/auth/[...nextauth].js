@@ -6,10 +6,14 @@ import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import { PrismaClient } from '@prisma/client';
 import CredentialsProvider from 'next-auth/providers/credentials';
 const prisma = new PrismaClient();
-
+import { SupabaseAdapter } from '@next-auth/supabase-adapter';
 export default function handler(req, res) {
+  console.log(process.env.NEXT_PUBLIC_SUPABASE_URL);
   NextAuth(req, res, {
-    adapter: PrismaAdapter(prisma),
+    adapter: SupabaseAdapter({
+      url: process.env.NEXT_PUBLIC_SUPABASE_URL ?? '',
+      secret: process.env.SUPABASE_SERVICE_ROLE_KEY ?? '',
+    }),
 
     providers: [
       /*    CredentialsProvider({

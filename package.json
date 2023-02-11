@@ -14,7 +14,10 @@
     "@emotion/styled": "^11.9.3",
     "@mui/material": "^5.8.5",
     "@next-auth/prisma-adapter": "^1.0.3",
+    "@next-auth/supabase-adapter": "^0.2.1",
     "@prisma/client": "^4.0.0",
+    "@reduxjs/toolkit": "^1.9.2",
+    "@supabase/supabase-js": "^2.7.1",
     "dotenv": "^16.0.1",
     "eslint": "^8.20.0",
     "next": "^12.1.6",
@@ -24,13 +27,15 @@
     "react-horizontal-scrolling-menu": "^3.0.1",
     "react-icons": "^4.4.0",
     "react-loader-spinner": "^5.1.5",
-    "react-router-dom": "^6.3.0"
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^6.3.0",
+    "redux": "^4.2.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.7",
     "eslint-config-next": "12.1.6",
     "postcss": "^8.4.14",
-    "prisma": "^4.0.0",
+    "prisma": "^4.10.1",
     "tailwindcss": "^3.1.3"
   }
 }

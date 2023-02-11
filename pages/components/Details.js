@@ -5,8 +5,8 @@ const Details = ({ exoDetails }) => {
   if (exoDetails) {
     const { name, gifUrl, bodyPart, equipment, target } = exoDetails;
     return (
-      <div className="flex mx-auto bg-slate-800 text-white xl:flex-row sm:flex-col flex-row gap-9 xl:w-[90%] sm:w-[70%] p-8 rounded-md  ">
-        <div className="xl:w-[60%] my-auto sm:w-[90%] sm:mx-auto  rounded-md">
+      <div className="flex mx-auto flex-wrap flex-row  bg-slate-800 text-white  gap-9 xl:w-[90%] sm:w-[70%] p-8 rounded-md  ">
+        <div className=" my-auto mx-auto  rounded-md">
           <Image src={gifUrl} alt={name} width={600} height={600} />
         </div>
         <div className="flex flex-col gap-10 ">

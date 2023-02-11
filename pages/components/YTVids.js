@@ -20,15 +20,16 @@ const YTVids = ({ exoDetails, exoVids }) => {
                 href={`https://www.youtube.com/watch?v=${item.video.videoId}`}
                 target="_blank"
               >
-                <div className="cursor-pointer flex border-t-4 rounded-md max-w-[380px] bg-slate-100 border-cyan-600 flex-col items-center justify-center p-4 gap-4">
+                <div className="cursor-pointer h-fit flex border-t-4 rounded-md max-w-[380px] bg-slate-100 border-cyan-600 flex-col items-center justify-center p-4 gap-4">
                   <Image
                     width={350}
-                    height={350}
+                    height={250}
+                    objectFit={'contain'}
                     alt=""
-                    className=" rounded-md max-h-[85%]"
+                    className=" rounded-md  h-fit"
                     src={item.video.thumbnails[0].url}
                   />
-                  <h1 className="text-lg">{item.video.title}</h1>
+                  <h1 className="text-lg font-sans">{item.video.title}</h1>
                 </div>
               </Link>
             ))

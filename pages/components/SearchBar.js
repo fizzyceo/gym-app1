@@ -57,7 +57,7 @@ const SearchBar = ({ setExercises, bodyPart, setBodyPart }) => {
           className="py-5 px-2 outline-none w-[80%] "
         />
         <button
-          className="bg-cyan-800 w-[20%] text-slate-300 px-5 py-4"
+          className="bg-cyan-800 min-w-[20%] text-slate-300 px-5 py-4"
           onClick={handleSearch}
         >
           Search

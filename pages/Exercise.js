@@ -9,7 +9,6 @@ const Exercise = ({
   bodyPart,
   userexos,
   exercises,
-  setAddmessage,
 }) => {
   //Pagination logic
   const [currentPage, setcurrentPage] = useState(1);
@@ -54,7 +53,6 @@ const Exercise = ({
               key={exo.id}
               exo={exo}
               currUser={currUser}
-              setAddmessage={setAddmessage}
               userexos={userexos}
               mine={false}
               DoesexoExist={

@@ -3,39 +3,34 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 import { useSession, signOut } from 'next-auth/react';
-import Router from 'next/router';
+import { useRouter } from 'next/router';
 import Image from 'next/image';
 
-const Navbar = ({ currUser }) => {
+const Navbar = () => {
+  const router = useRouter();
   const { data: session, loading } = useSession();
   const [dropdown, setdropdown] = useState(false);
   const [url, seturl] = useState('');
   //use router to pass curruser to different links
 
-  const pushuser = (passedurl) => {
-    seturl(passedurl);
-
-    Router.push({
-      pathname: url,
-      query: {
-        ...Router.query,
-        user: JSON.stringify(currUser),
-      },
-    });
-  };
-
   return (
     <nav
       className={`z-10 w-screen py-4 px-14  shadow-lg shadow-cyan-700 bg-gradient-to-r from-blue-900 to-cyan-900 text-white flex flex-row justify-between  items-center`}
     >
-      <Image src="/dumbbell.png" alt="" height={48} width={48} />
+      <Link href="/">
+        <Image
+          className="cursor-pointer"
+          src="/dumbbell.png"
+          alt=""
+          height={48}
+          width={48}
+        />
+      </Link>
       <ul className="flex flex-row gap-4 text-lg font-serif items-center justify-center">
         <li>
           <Link href="/">Home</Link>
         </li>
-        <li>
-          <Link href="/#Exos">Exercise</Link>
-        </li>
+
         {!session ? (
           <li className=" ml-[50px]">
             <Link href="/Login">
@@ -70,19 +65,7 @@ const Navbar = ({ currUser }) => {
                 >
                   <li>
                     <a
-                      href="#"
-                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    >
-                      Dashboard
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      onClick={(e) => {
-                        e.preventDefault();
-                        e.currentTarget.disabled = false;
-                        pushuser(`/Profile/${currUser.id}`);
-                      }}
+                      href={`/Profile`}
                       className="block px-4 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                     >
                       Profile
@@ -90,11 +73,7 @@ const Navbar = ({ currUser }) => {
                   </li>
                   <li>
                     <a
-                      onClick={(e) => {
-                        e.preventDefault();
-                        e.currentTarget.disabled = false;
-                        pushuser(`/OwnExo/${currUser.id}`);
-                      }}
+                      href="/MyExercises"
                       className="block px-4 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                     >
                       My Exercises
@@ -102,7 +81,11 @@ const Navbar = ({ currUser }) => {
                   </li>
                   <li>
                     <button
-                      onClick={() => signOut()}
+                      onClick={() => {
+                        signOut();
+
+                        router.push('/');
+                      }}
                       className=" w-full  px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                     >
                       Sign out

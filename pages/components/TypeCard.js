@@ -9,7 +9,7 @@ const TypeCard = ({ selectedPart, bodyPart, setBodyPart }) => {
   return (
     <div
       onClick={changebodypart}
-      className={`p-6  cursor-pointer h-[75%] my-auto  min-w-[25%] flex flex-col border-t-4 shadow-xl hover:scale-105 transition-all shadow-slate-600 ${
+      className={`p-6  cursor-pointer h-[75%] my-auto  min-w-[300px] flex flex-col border-t-4 shadow-xl hover:scale-105 transition-all shadow-slate-600 ${
         bodyPart === selectedPart
           ? ' border-cyan-600 shadow-2xl shadow-slate-100'
           : ''
