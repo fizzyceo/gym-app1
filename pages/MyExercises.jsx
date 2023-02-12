@@ -15,7 +15,7 @@ const OwnExo = ({ filteredexos, user }) => {
   return (
     <div className="flex flex-col gap-12">
       <Head>
-        <title>Exercises - {user.data[0].name}</title>
+        <title>Exercises - {user?.data[0]?.name}</title>
         <meta
           name="description"
           content="Come and see every gym exercises and enjoy the experience of browsing, adding exercises to your routines "
@@ -45,7 +45,7 @@ const OwnExo = ({ filteredexos, user }) => {
               exo={exo}
               currUser={user}
               mine={true}
-              key={exo.name}
+              key={exo?.name}
               DoesexoExist={true}
             />
           ))}

@@ -56,7 +56,7 @@ const Exercise = ({
               userexos={userexos}
               mine={false}
               DoesexoExist={
-                userexos?.filter((e) => e.exo_Id === exo.id).length > 0
+                userexos?.filter((e) => e.exo_Id === exo?.id).length > 0
                   ? DoesexoExist
                   : !DoesexoExist
               }

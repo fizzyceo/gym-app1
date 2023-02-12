@@ -67,17 +67,17 @@ export async function getServerSideProps(cxt) {
     const user = await supabaseNextAuth
       .from('users')
       .select('*')
-      .eq('email', session.user.email);
+      .eq('email', session?.user?.email);
 
     const favs = await supabase
       .from('user_fav')
       .select('*')
-      .eq('id', user.data[0].id);
+      .eq('id', user?.data[0]?.id);
 
     return {
       props: {
-        user: user.data[0],
-        userexos: favs.data,
+        user: user?.data[0],
+        userexos: favs?.data,
       },
     };
 
