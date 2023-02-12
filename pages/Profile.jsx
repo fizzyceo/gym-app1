@@ -8,15 +8,14 @@ import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 
 const Profile = ({ user, isnotLogged }) => {
-  const [verified, setVerified] = useState(user.emailVerified ? true : false);
+  const [verified, setVerified] = useState(user?.emailVerified ? true : false);
   const [loading, setLoading] = useState(false);
-  console.log(verified);
 
   const verification = async () => {
     const favs = await fetch(`/api/verify`, {
       method: 'POST',
       body: JSON.stringify({
-        userid: user.id,
+        userid: user?.id,
       }),
       headers: { 'Content-Type': 'application/json' },
     });
@@ -35,18 +34,18 @@ const Profile = ({ user, isnotLogged }) => {
         <Image
           width={160}
           height={160}
-          src={user.image}
+          src={user?.image}
           className=" rounded-full  "
           alt=""
         />
         <div className="flex gap-10 flex-col items-start justify-center">
           <div className="flex flex-row gap-4">
             <h2>Name</h2>
-            <p>{user.name}</p>
+            <p>{user?.name}</p>
           </div>
           <div className="flex flex-row gap-4">
             <h2>Email</h2>
-            <p>{user.email}</p>
+            <p>{user?.email}</p>
           </div>
           <div className="flex flex-row items-center justify-center gap-4">
             <h2>Verified email</h2>
@@ -77,7 +76,7 @@ export async function getServerSideProps(context) {
       .from('users')
       .select('*')
       .eq('email', session.user.email);
-    console.log('this is the user confirmed ', user);
+
     return {
       props: {
         user: user?.data[0],

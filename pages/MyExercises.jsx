@@ -9,9 +9,9 @@ import fetchData, { options } from '../lib/fetchData';
 import Footer from './components/Footer';
 import { useSelector } from 'react-redux';
 const OwnExo = ({ filteredexos, user }) => {
-  console.log(user);
-  const deletemessage = useSelector((state) => state.deleteMsg);
+  const deletemessage = useSelector((state) => state.popups.deleteMsg);
   // const [deletemessage, setdeletemessage] = useState(false);
+  console.log(deletemessage);
   return (
     <div className="flex flex-col gap-12">
       <Head>
@@ -63,27 +63,26 @@ export async function getServerSideProps(cxt) {
 
     // const favs = await fetch(`${server}/api/UserFavor/${user.user.id}`);
     //  const favdata = await favs.json();
-    console.log(session);
+
     const user = await supabaseNextAuth
       .from('users')
       .select('*')
       .eq('email', session.user.email);
 
-    console.log(user);
     const favs = await supabase
       .from('user_fav')
       .select('*')
       .eq('id', user.data[0].id);
-    console.log('favss', JSON.stringify(favs.data[0].exo_id));
+
     const returnedData = await fetchData(
       'https://exercisedb.p.rapidapi.com/exercises',
       options
     );
-    console.log(returnedData);
+
     const filteredexos = returnedData.filter((exo) =>
       favs.data.find((userexo) => userexo.exo_id === parseInt(exo.id))
     );
-    console.log(filteredexos);
+
     return {
       props: {
         filteredexos,

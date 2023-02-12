@@ -20,15 +20,15 @@ const Profile = ({ user }) => {
         <div className="flex gap-10 flex-col items-start justify-center">
           <div className="flex flex-row gap-4">
             <h2>Name</h2>
-            <p>{user.name}</p>
+            <p>{user?.name}</p>
           </div>
           <div className="flex flex-row gap-4">
             <h2>Email</h2>
-            <p>{user.email}</p>
+            <p>{user?.email}</p>
           </div>
           <div className="flex flex-row items-center justify-center gap-4">
             <h2>Verified email</h2>
-            <p>{user.emailVerified ? 'True' : 'False'}</p>
+            <p>{user?.emailVerified ? 'True' : 'False'}</p>
             {!user.emailVerified && (
               <button className="bg-green-600 p-3 rounded-md">
                 Verify Now
@@ -45,10 +45,8 @@ const Profile = ({ user }) => {
 };
 
 export async function getServerSideProps(context) {
-  console.log('this is the profile server log');
-  console.log(context.query);
-  const user = JSON.parse(context.query.user);
-  console.log(user);
+  const user = JSON.parse(context.query?.user);
+
   return {
     props: {
       user: user,

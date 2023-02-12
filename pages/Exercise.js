@@ -41,7 +41,7 @@ const Exercise = ({
   }, [bodyPart, setExercises]);
 
   const currentExos = exercises?.slice(indexOfFirstExo, indexOfLastExo);
-  console.log(currentExos);
+
   return (
     <div className="my-14  text-white mx-auto rounded-md w-[80%]  bg-gradient-to-b from-slate-700 to-cyan-900 text-center pt-8 ">
       <h1 className="text-3xl">{'All'} Results</h1>

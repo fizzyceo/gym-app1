@@ -19,9 +19,9 @@ export default function Home({ user, userexos }) {
   const [favexosID, setfavexosID] = useState(
     userexos?.map((fav) => fav?.exo_id) || []
   );
-  const addmessage = useSelector((state) => state.addmessage);
+  const addmessage = useSelector((state) => state.popups.addmessage);
   //const [addmessage, setAddmessage] = useState(false);
-  console.log(addmessage);
+
   //fix when the exercise is already added to the user's liste
 
   return (
@@ -63,18 +63,17 @@ export async function getServerSideProps(cxt) {
 
     // const favs = await fetch(`${server}/api/UserFavor/${user.user.id}`);
     //  const favdata = await favs.json();
-    console.log(session);
+
     const user = await supabaseNextAuth
       .from('users')
       .select('*')
       .eq('email', session.user.email);
 
-    console.log(user);
     const favs = await supabase
       .from('user_fav')
       .select('*')
       .eq('id', user.data[0].id);
-    console.log(favs);
+
     return {
       props: {
         user: user.data[0],

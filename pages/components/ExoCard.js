@@ -9,7 +9,7 @@ import {
   setAddMsgTrue,
   setDeleteMsgFalse,
   setDeleteMsgTrue,
-} from '../../Context/popups';
+} from '../../slices/popups';
 const ExoCard = ({
   exo,
   currUser,
@@ -32,8 +32,7 @@ const ExoCard = ({
   );*/
   const [deleted, setdeleted] = useState(false);
   //const user = JSON.parse(currUser);
-  console.log(parseInt(exo?.id));
-  console.log(userexos);
+
   const [exoExist, setExoExist] = useState(
     userexos?.filter((e) => e.exo_id === parseInt(exo?.id)).length > 0
       ? false
@@ -42,7 +41,7 @@ const ExoCard = ({
   const delete_user = async () => {
     if (Object.keys(currUser).length > 0) {
       setTimeout(() => {
-        dispatch(setDeleteMsgFalse);
+        dispatch(setDeleteMsgFalse());
       }, 3000);
       const favs = await fetch(`/api/UserFavor/${currUser?.id}`, {
         method: 'DELETE',
@@ -53,8 +52,8 @@ const ExoCard = ({
       });
 
       const favdata = await favs.json();
-      console.log(favdata);
-      dispatch(setDeleteMsgTrue);
+
+      dispatch(setDeleteMsgTrue());
       setdeleted(true);
       setExoExist(true);
     }
