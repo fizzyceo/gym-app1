@@ -2,7 +2,7 @@ import React from 'react';
 import { useSession, signIn } from 'next-auth/react';
 import Navbar from './components/Navbar';
 import Link from 'next/link';
-import { PrismaClient } from '@prisma/client';
+
 import Footer from './components/Footer';
 import Image from 'next/image';
 import { server } from '../config/server';

@@ -1,4 +1,3 @@
-import { PrismaClient } from '@prisma/client';
 import { getSession, useSession } from 'next-auth/react';
 import Image from 'next/image';
 

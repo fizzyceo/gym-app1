@@ -2,18 +2,18 @@ import Head from 'next/head';
 import Image from 'next/image';
 
 import Navbar from './components/Navbar';
-import Link from 'next/link';
-import HomePage from './HomePage';
-import Exercise from './Exercise';
-import { useSession, signIn, signOut, getSession } from 'next-auth/react';
-import { PrismaClient } from '@prisma/client';
 
-import { useEffect, useState } from 'react';
-import { fetchuser } from '../lib/fetchData';
+import HomePage from './HomePage';
+
+import { getSession } from 'next-auth/react';
+
+import { useState } from 'react';
+
 import Footer from './components/Footer';
-import { server } from '../config/server';
+
 import supabase, { supabaseNextAuth } from '../utils/SupabaseCLI';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+
 export default function Home({ user, userexos }) {
   const [currUser, setcurrUser] = useState(user || {}); //put on the contexte
   const [favexosID, setfavexosID] = useState(
