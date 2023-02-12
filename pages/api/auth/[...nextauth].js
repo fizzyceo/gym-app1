@@ -2,10 +2,8 @@
 import NextAuth from 'next-auth/next';
 import GoogleProvider from 'next-auth/providers/google';
 import FacebookProvider from 'next-auth/providers/facebook';
-import { PrismaAdapter } from '@next-auth/prisma-adapter';
-import { PrismaClient } from '@prisma/client';
 import CredentialsProvider from 'next-auth/providers/credentials';
-const prisma = new PrismaClient();
+
 import { SupabaseAdapter } from '@next-auth/supabase-adapter';
 export default function handler(req, res) {
   console.log(process.env.NEXT_PUBLIC_SUPABASE_URL);

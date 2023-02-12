@@ -1,7 +1,5 @@
-import { PrismaClient } from '@prisma/client';
 import supabase from '../../utils/SupabaseCLI';
 
-const prisma = new PrismaClient();
 export default async function handler(req, res) {
   const { UserId } = req.body;
   const { data, error } = await supabase

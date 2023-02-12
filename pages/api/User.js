@@ -1,7 +1,6 @@
-import { PrismaClient } from '@prisma/client';
-import { getSession, useSession } from 'next-auth/react';
+import { getSession } from 'next-auth/react';
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-const prisma = new PrismaClient();
+
 export default async function handler(req, res) {
   const session = await getSession({ req });
   //console.log(session);
