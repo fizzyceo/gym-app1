@@ -97,7 +97,17 @@ const ExoCard = ({
       } transition-all min-w-[300px] max-h-[500px] hover:scale-105  w-[400px] border-t-[6px] border-cyan-500  bg-slate-100 text-slate-900 text-lg text-left rounded-md  h-fit`}
     >
       <a className=" cursor-pointer" onClick={() => sendProps()}>
-        <Image
+
+        <img alt="image"
+          src={exo?.gifUrl}
+          
+          className='w-[400px] h-[350px] '
+          
+          loading="lazy"
+          placeholder="blur"
+          blurDataURL={exo?.gifUrl}
+          />
+        {/* <Image
           src={exo?.gifUrl}
           // layout="fill" // required
           //objectFit="cover" // change to suit your needs
@@ -107,7 +117,7 @@ const ExoCard = ({
           loading="lazy"
           placeholder="blur"
           blurDataURL={exo?.gifUrl}
-        />
+        /> */}
       </a>
       <div className="ml-2 my-2 flex flex-row gap-5   text-white ">
         <p className="py-2 px-4 rounded-xl flex items-center bg-cyan-700">
